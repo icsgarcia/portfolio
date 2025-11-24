@@ -35,6 +35,14 @@ function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const scrollToSection = (name) => {
+        const section = document.getElementById(name.toLowerCase());
+
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <header className="fixed left-0 top-0 w-full z-50">
             <div className="flex justify-between md:justify-around items-center py-4 px-6 bg-white/80 dark:bg-slate-900/90 backdrop-blur-md shadow-lg border-b border-gray-100 dark:border-slate-800 transition-all duration-300">
@@ -54,21 +62,19 @@ function Header() {
                                 "Projects",
                                 "Contact",
                             ].map((item) => (
-                                <li key={item}>
-                                    <a
-                                        href={`#${item.toLowerCase()}`}
-                                        className={`text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all relative px-1 py-2 font-medium ${
-                                            activeSection === item.toLowerCase()
-                                                ? "text-blue-600 dark:text-blue-400"
-                                                : ""
-                                        }`}
-                                    >
-                                        {item}
-                                        {activeSection ===
-                                            item.toLowerCase() && (
-                                            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full"></span>
-                                        )}
-                                    </a>
+                                <li
+                                    key={item}
+                                    onClick={() => scrollToSection(item)}
+                                    className={`cursor-pointer text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all relative px-1 py-2 font-medium ${
+                                        activeSection === item.toLowerCase()
+                                            ? "text-blue-600 dark:text-blue-400"
+                                            : ""
+                                    }`}
+                                >
+                                    {item}
+                                    {activeSection === item.toLowerCase() && (
+                                        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full"></span>
+                                    )}
                                 </li>
                             ))}
                         </ul>

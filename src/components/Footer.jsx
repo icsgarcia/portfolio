@@ -1,6 +1,13 @@
-import { Mail, Linkedin, Github, Facebook } from "lucide-react";
+import { Mail, Linkedin, Github } from "lucide-react";
 
 function Footer() {
+    const scrollToSection = (name) => {
+        const section = document.getElementById(name.toLowerCase());
+
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    };
     return (
         <footer className="bg-gradient-to-b from-blue-50 to-white dark:from-slate-900 dark:to-slate-900 dark:border-t dark:border-slate-800 transition-colors duration-300">
             <div className="w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
@@ -25,13 +32,12 @@ function Footer() {
                                 "Projects",
                                 "Contact",
                             ].map((item) => (
-                                <li key={item}>
-                                    <a
-                                        href={`#${item.toLowerCase()}`}
-                                        className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-1 px-2 font-medium hover:scale-105 inline-block"
-                                    >
-                                        {item}
-                                    </a>
+                                <li
+                                    key={item}
+                                    onClick={() => scrollToSection(item)}
+                                    className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-1 px-2 font-medium hover:scale-105 inline-block"
+                                >
+                                    {item}
                                 </li>
                             ))}
                         </ul>
@@ -71,17 +77,6 @@ function Footer() {
                         >
                             <div className="bg-white dark:bg-slate-800 p-3 rounded-full shadow-md hover:shadow-lg">
                                 <Github size={22} />
-                            </div>
-                        </a>
-                        <a
-                            href="https://www.facebook.com/ivancsgarcia"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-all duration-300 transform hover:-translate-y-1 hover:scale-110"
-                            aria-label="Facebook"
-                        >
-                            <div className="bg-white dark:bg-slate-800 p-3 rounded-full shadow-md hover:shadow-lg">
-                                <Facebook size={22} />
                             </div>
                         </a>
                     </div>
