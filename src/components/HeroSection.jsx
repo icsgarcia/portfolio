@@ -1,4 +1,11 @@
 function HeroSection() {
+    const scrollToSection = (name) => {
+        const section = document.getElementById(name.toLowerCase());
+
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    };
     return (
         <section
             id="home"
@@ -14,20 +21,20 @@ function HeroSection() {
                             </span>
                         </h1>
                         <p className="text-center md:text-left md:text-xl lg:text-3xl italic mb-6 text-gray-700 dark:text-gray-300 font-medium">
-                            Web Developer
+                            Frontend Developer
                         </p>
                         <p className="mb-8 lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed bg-white/70 dark:bg-slate-800/50 p-5 rounded-xl shadow-sm">
-                            I’m a Web Developer passionate about creating
+                            I’m a Frontend Developer passionate about creating
                             responsive, intuitive, and visually appealing
                             websites and applications that bring ideas to life.
                         </p>
                         <div className="flex flex-col gap-4 md:flex-row">
-                            <a
-                                href="#about"
+                            <p
+                                onClick={() => scrollToSection("about")}
                                 className="lg:text-lg cursor-pointer border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-500 dark:hover:border-blue-500 dark:hover:text-white rounded-full px-8 py-3 text-center font-medium transition-all duration-300 hover:shadow-md"
                             >
                                 Learn more
-                            </a>
+                            </p>
                             <a
                                 href="/resume.pdf"
                                 target="_blank"

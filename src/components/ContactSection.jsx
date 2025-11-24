@@ -1,4 +1,4 @@
-import { Mail, ThumbsUp, Linkedin, Github, Facebook } from "lucide-react";
+import { Mail, ThumbsUp, Linkedin, Github } from "lucide-react";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -120,15 +120,6 @@ function ContactSection() {
                                             aria-label="GitHub"
                                         >
                                             <Github size={20} />
-                                        </a>
-                                        <a
-                                            href="https://www.facebook.com/ivancsgarcia"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="bg-white dark:bg-slate-700 p-3 rounded-full shadow-md hover:shadow-lg text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-all duration-300 transform hover:-translate-y-1 hover:scale-110"
-                                            aria-label="Facebook"
-                                        >
-                                            <Facebook size={20} />
                                         </a>
                                     </div>
                                 </div>
